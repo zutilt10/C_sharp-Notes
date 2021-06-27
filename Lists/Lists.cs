@@ -18,8 +18,21 @@ namespace Test.Lists
             // Namespaces being used can be seen at the very top
             // Lists are inside of the System.Collections.Generic namespace
             // The syntax for lists is: List<<type of data>> <name of list> = new List<<type of data>>();
+            // It is also possible to add values to the list once it's created
+            // Simply add the values at the very end of the List creation in {}
 
-            List<string> shoppingList = new List<string>();
+            var numbers = new List<int>() { 1, 2, 3, 4};
+
+            // The .Add method adds a value to the list as the very last value in the list with the biggest index
+            numbers.Add(1);
+            // The .AddRange method adds a entire list to another list
+            numbers.AddRange(new int[3] { 5, 6, 7});
+
+            // With .IndexOf and .LastIndexOf methods we can get the index of certain values
+            Console.WriteLine(numbers.IndexOf(1));
+            Console.WriteLine(numbers.LastIndexOf(1));
+
+            List<string> shoppingList = new List<string>(); 
 
             shoppingList.Add("Eggs");
             shoppingList.Add("Chocolate");
@@ -42,6 +55,7 @@ namespace Test.Lists
             }
 
             Console.ReadKey();
+            // Note: It is not possible to change the values of a list in a foreach loop 
         }
     }
 }
