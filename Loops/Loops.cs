@@ -56,6 +56,14 @@ namespace Test.Loops
             Console.WriteLine("It took you " + attempts + " attempt(s) to roll a six");
 
             Console.ReadKey();
+
+            // When dealing with lists, arrays or strings, it might be simplier to use a foreach loop
+            var name = "John";
+
+            foreach (var character in name)
+            {
+                Console.WriteLine(character);
+            }
         }
     }
 }

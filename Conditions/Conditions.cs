@@ -65,6 +65,28 @@ namespace Test.Conditions
 
 
             Console.ReadKey();
+
+            // We can also use enums in switch statements 
+            // When using swich statements we can have two cases run the same code
+            // To do this, 
+            var season = Season.Winter; 
+
+            switch (season)
+            {
+                case Season.Summer:
+                    Console.WriteLine("It's too hot");
+                    break;
+                case Season.Winter:
+                    Console.WriteLine("It's too cold");
+                    break;
+                case Season.Spring:
+                case Season.Autumn:
+                    Console.WriteLine("This is good");
+                    break;
+                default:
+                    Console.WriteLine("Nothing's happening");
+                    break;
+            }
         }
     }
 }

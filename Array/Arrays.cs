@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Test.Array
+namespace Test.Arrays
 {
     class Arrays
     {
@@ -48,6 +48,17 @@ namespace Test.Array
             for (int i = 0; i < _games.Length; i++)
             {
                 Console.WriteLine(_games[i]);
+            }
+
+            // The .Index method returns the index of a certan value in the array
+            var index = Array.IndexOf(games, "Dead Cells");
+            Console.WriteLine(index);
+
+            // The .Clear method deletes a certain number of values from an array and replaces them with 0
+            Array.Clear(games, 0, 1);
+            foreach (var game in games)
+            {
+                Console.WriteLine(game);
             }
 
             // 2D arrays are arrays that contain arrays
