@@ -25,6 +25,8 @@ namespace Test.Methods
             Console.WriteLine("The result is " + Result);
 
             Console.ReadKey();
+
+            Console.WriteLine(Add(1, 2, 3, 4));
         }
         // When we create a new method/function we must do it outside of the Main method/function.
         // It does not matter if the new method is before or after Main.
@@ -33,6 +35,8 @@ namespace Test.Methods
         //                                               {
         //                                                  <code to be excuted>
         //                                               }
+        // All methods have what's known as a signature consisting of it's name and type and number of parameters
+        // We can doing what's known as overloading a method where, we have methods with the same name with different signatures
         static void GenerateMoney()
         {
             Random numberGen = new Random();
@@ -64,6 +68,19 @@ namespace Test.Methods
             int result = num01 + num02;
             // Finally, we type out which result we wish to return which can now be stored in another variable
             return result;
+        }
+
+        // By adding the params keyword into the parathesis, users can create an array as the default input
+        // This will help when we want to overload methods with lots of variables 
+        static int Add(params int[] numbers)
+        {
+            var sum = 0;
+            foreach (var number in numbers)
+            {
+                sum += number;
+            }
+
+            return sum;
         }
     }
 }

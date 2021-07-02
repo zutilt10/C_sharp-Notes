@@ -37,6 +37,8 @@ namespace Test.Classes
             //                                   <attributes to be set>
             //                                  }
             // We can also create parameters for contructors like they were methods
+            // It is also possible to create more than 1 constructor per class
+            // We would do this because some instances will have existing values for certain attributes while others will not
             public Mech(string _name, string _weapon)
             {
                 name = _name;
