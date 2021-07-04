@@ -16,6 +16,7 @@ namespace Test.Fields
         public string Name;
         // With the readonly modifier, we can set a certain field to be initiated only once
         // This will help to improve the robustness of our code
+        // A field can be initialised in a constructor or in the class
         public readonly List<Order> Orders = new List<Order>();
 
         public Customer(int id)
