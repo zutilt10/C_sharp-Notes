@@ -24,4 +24,6 @@ namespace Test.Inheritance
             Console.WriteLine("VRRRRRRRRRRRRR");
         }
     }
+    // Note: One problem with inheritance is that the hierarchies of classes could easily become too large
+    // This means tha once we change one class we could end up messing up a lot more classes
 }
