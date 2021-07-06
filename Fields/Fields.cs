@@ -24,7 +24,8 @@ namespace Test.Fields
             this.Id = id;
         }
 
-        // By adding the this keyword underneath the constructor's statement, we set the id like we did in the above constructor 
+        // By adding the this keyword underneath the constructor's statement, we pass control from one constructor to another
+        // The value in the parathesis helps dictate which constructor is having it's control passed on
         public Customer(int id, string name)
             :this(id)
         {

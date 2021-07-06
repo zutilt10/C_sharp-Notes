@@ -29,7 +29,6 @@ namespace Test.Properties
             Birthdate = birthDate;
         }
 
-
         // This is an example of a property with logic integrated
         // It will automatically calculate it's own value without needing input from the user or programmer
         public int Age
@@ -50,6 +49,7 @@ namespace Test.Properties
         {
             var person = new Person(new DateTime(2012, 1, 1));
             person.Name = "John";
+            Console.WriteLine(person.Birthdate);
 
         }
     }

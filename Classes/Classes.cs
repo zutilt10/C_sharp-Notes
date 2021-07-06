@@ -30,7 +30,7 @@ namespace Test.Classes
             // When we add static to a variable, that variable becomes shared by all instances of the class
             public static int Count;
 
-            // In order to save lines when creating new instances of a class, we can use a constructor
+            // In order to save lines when creating new instances of a class, we can use a constructor which are a special kind of method 
             // Constructors allow us to choose what happens when a class is created
             // The syntax for a constructor is: public <Class name>()
             //                                  {
@@ -106,6 +106,7 @@ namespace Test.Classes
             static void Main(string[] args)
             {
                 // To create an instance of a class, the syntax is: <Name of class> <Name of instance> = new <Name of class>()
+                // An instance of an object is called an object
                 Mech mech01 = new Mech("Eradicator", "The Decimator");
                 // To access the methods created in the class, we simply need to write: <name of instance>.<name of method>
                 mech01.Fire();
