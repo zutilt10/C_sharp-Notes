@@ -10,7 +10,7 @@ namespace Test.Inheritance
     {
         static void Main(string[] args)
         {
-            Construction_Robot bot = new Construction_Robot();
+            Construction_Robot bot = new Construction_Robot("100-324");
             // Now, an instance of the subclass will be able to use all the methods in the superclass
             bot.Activate();
 

@@ -12,6 +12,15 @@ namespace Test.Inheritance
     // The inheritor is called the subclass while the one that is inherited from is called the superclass
     class Construction_Robot : Robot
     {
+        // When we have a constructor in a superclass, that will cause a type of the class to be created as well
+        // If we don't have an empty parameter-less constructor, then a constructor in the subclass can't be created
+        // To solve this we use the base keyword and insert the parameter of the superclass constructor into it
+        // This supplies a value to the property of the superclass
+        public Construction_Robot(string registrationNumber)
+            : base(registrationNumber)
+        {
+            Console.WriteLine("Registration number detected");
+        }
         public void BuildWall()
         {
             Console.WriteLine("Construction begins ");
@@ -25,5 +34,5 @@ namespace Test.Inheritance
         }
     }
     // Note: One problem with inheritance is that the hierarchies of classes could easily become too large
-    // This means tha once we change one class we could end up messing up a lot more classes
+    // This means that once we change one class we could end up messing up a lot more classes
 }
