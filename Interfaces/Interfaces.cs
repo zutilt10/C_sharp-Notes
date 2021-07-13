@@ -6,62 +6,73 @@ using System.Threading.Tasks;
 
 namespace Test.Interfaces
 {
-    public class Order
+    // Interfaces are similar to classes in syntax but are functionally different
+    // To declare an interface we use the interface keyword instead of class
+    public interface ILogger
     {
-        public int Id { get; set; }
-        public DateTime DatePlaced { get; set; }
-        public Shipment Shipment { get; set; }
-        public float TotalPrice { get; set; }
+        // An interface does not have any implementation, it's members do not have any code attached
+        // Interfaces are used when we want a loosly coupled application
+        // This means that in the application, when we want to change something we can do so by simply creating a new class and implementing that instead of the older classes
+        // This is possible because interfaces are used to give certain classes the same type of methods but allowing for different implementation between classes
+        // This design thinking is called extensibility
+        void LogError(string message);
+        void LogInfo(string message);
+    }
+    public class DbMigrator
+    {
+        // To use an interface with a class, we must create it as a field 
+        private readonly ILogger _logger;
 
-        public bool IsShipped
+        // Then, in a constrcutor of the class we have to set it as a parameter
+        // This means that the class will be dependent on that interface
+        // This is called dependency injection
+        public DbMigrator(ILogger logger)
         {
-            get { return Shipment != null; }
+            _logger = logger;
+        }
+        public void Migrate()
+        {
+            // What's going on here is that, when we have a concrete class that has the interface implemented, that class will have code attached to the methods in the interface
+            // Then we pass an instance of that class in as a parameter which will have it's own unique implementation of a method in the interface
+            // If we use the method here( Migrate() in this case), the unique code of that class for the method of the interface called will be run
+            // This means that any class with the interface implemented can be used as a parameter
+            _logger.LogInfo("Logged in");
         }
     }
-    public interface IShippingCalculator
-    {
-        float CalculateShipping(Order order);
-    }
 
-    public class ShippingCalculator : IShippingCalculator
+    // When we are creating a class that implements the interface, we do so as though it were being inherited
+    // Any class that implements the interface must implement the methods within the interface
+    public class ConsoleLogger : ILogger
     {
-        public float CalculateShipping(Order order)
+        public void LogError(string message)
         {
-            if (order.TotalPrice < 35f)
-            {
-                return order.TotalPrice * 0.1f;
-            }
-            return 0;
+            Console.WriteLine(message);
+        }
+
+        public void LogInfo(string message)
+        {
+            Console.WriteLine(message);
         }
     }
 
-    public class OrderProcessor
+    public class FileLogger : ILogger
     {
-        private readonly IShippingCalculator _shippingCalculator;
-
-        public OrderProcessor(IShippingCalculator shippingCalculator)
+        public void LogError(string message)
         {
-            _shippingCalculator = shippingCalculator;
+            Console.WriteLine(message + " inside file");
         }
 
-        public void Process(Order order)
+        public void LogInfo(string message)
         {
-            if (order.IsShipped)
-            {
-                throw new InvalidOperationException("This order has already been processed");
-            }
-            order.Shipment = new Shipment;
-            {
-                Cost = _shippingCalculator.CalculateShipping(order);
-                ShippingDate = DateTime.Today.AddDays(1);
-            }
+            Console.WriteLine(message + " inside file");
         }
     }
     class Interfaces
     {
         static void Main(string[] args)
         {
-
+            var dbMigrator = new DbMigrator(new ConsoleLogger());
+            dbMigrator.Migrate();
         }
     }
 }
