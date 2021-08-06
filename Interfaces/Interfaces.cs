@@ -23,7 +23,7 @@ namespace Test.Interfaces
         // To use an interface with a class, we must create it as a field 
         private readonly ILogger _logger;
 
-        // Then, in a constrcutor of the class we have to set it as a parameter
+        // Then, in a constructor of the class we have to set it as a parameter
         // This means that the class will be dependent on that interface
         // This is called dependency injection
         public DbMigrator(ILogger logger)
