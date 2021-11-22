@@ -18,7 +18,7 @@ namespace Test.Loops
             // {
             //      <Code that is excuted every loop>; 
             // }
-            Console.WriteLine("How mant cool numbers do you want: ");
+            Console.WriteLine("How many cool numbers do you want: ");
 
             int count = Convert.ToInt32(Console.ReadLine());
 
