@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    // The char keyword indicates a variable that consists of a character. By adding a "[]" after the variable name, it shows that multiple of the same type of variable is going to be included
+    char characterName[] = "John";
+    // The int keyword indicates a variable that consists of a number.
+    int characterAge = 44;
+
+    // By adding a "%s" to the printf() function, it indicates that we wish to include a string variable into the printed string. The name of the included variable is added after the string
+    printf("There was a man named %s\n", characterName);
+    // By adding a "%d" to the printf() function, it indicates that we wish to include a number variable into the printed string.
+    printf("He was known to be %d years old\n", characterAge);
+
+    return 0;
+}
